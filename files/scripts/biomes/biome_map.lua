@@ -6,4 +6,4 @@ local h = 48
 
 BiomeMapSetSize(w, h)
 BiomeMapLoadImage(0, 0, "data/biome_impl/biome_map.png")
-BiomeMapSetPixel(33, 13, 0xff346f89)
+BiomeMapSetPixel(2, 37, 0xff346f89)
