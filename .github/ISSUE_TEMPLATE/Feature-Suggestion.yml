@@ -39,7 +39,7 @@ body:
       required: false
     - label: "Random-spawn Pixel Scenes"
       required: false
-    - label: "Structure in a persistent area"
+    - label: "Persistent Pixel Scene/Structure"
       required: false
     - label: "Pre-made Wands"
       required: false
