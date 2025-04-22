@@ -1,0 +1,7 @@
+<BiomesToLoad>
+    <Biome 
+        biome_filename="mods/noita-diegetic-mod/files/biomes/opas_workshop_01.xml" 
+        height_index="0"
+        color="0xff346f89">
+    </Biome>
+</BiomesToLoad>
