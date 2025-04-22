@@ -1,11 +1,11 @@
-name: Feature Request
-description: Features to enhance vanilla Noita hints
-title: "[Flaw]: "
+name: Vanilla Noita Flaw
+description: Areas to target with new hints
+title: "[Target]: "
 labels: ["vanilla design flaw"]
 body:
 - type: "input"
   attributes:
-    label: "What is the vanilla feature that a new player should learn?"
+    label: "What is a useful vanilla feature for a new player to learn"
     description: "Describe a feature in unmodded Noita that has few or no in-game hints"
   validations:
     required: true
@@ -54,6 +54,8 @@ body:
     label: "Ideally, when should a player be introduced to this feature?"
     description: "Choose any that fit"
     options:
+    - label: "Any stage of the game"
+      required: false
     - label: "Tutorial (Hasn't beaten Kolmi)"
       required: false
     - label: "Beginner (1-5 wins)"
