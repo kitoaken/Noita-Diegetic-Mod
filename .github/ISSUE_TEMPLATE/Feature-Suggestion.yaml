@@ -1,4 +1,5 @@
-name: "Bug Report"
+name: Feature Request
+labels: ["vanilla design flaw"]
 fields:
 - type: "input"
   attributes:
