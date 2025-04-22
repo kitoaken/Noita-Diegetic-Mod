@@ -1,6 +1,8 @@
 name: Feature Request
+description: Features to enhance vanilla Noita hints
+title: "[Flaw]: "
 labels: ["vanilla design flaw"]
-fields:
+body:
 - type: "input"
   attributes:
     label: "What is the vanilla feature that a new player should learn?"
