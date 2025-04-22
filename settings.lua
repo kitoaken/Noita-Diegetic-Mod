@@ -16,5 +16,5 @@ local function PatchGamesInitlua() --patching vanilla's init.lua, we are doing i
 end
 
 function ModSettingsUpdate(init_scope)
-	if init_scope == 0 or init_scope == 1 then PatchGamesInitlua() end --this line
+	if init_scope == 0 or init_scope == 1 then PatchGamesInitlua() end
 end

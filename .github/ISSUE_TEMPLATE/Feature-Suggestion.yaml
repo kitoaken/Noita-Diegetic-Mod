@@ -1,0 +1,74 @@
+name: "Bug Report"
+fields:
+- type: "input"
+  attributes:
+    label: "What is the vanilla feature that a new player should learn?"
+    description: "Describe a feature in unmodded Noita that has few or no in-game hints"
+  validations:
+    required: true
+- type: "checkboxes"
+  attributes:
+    label: "What categories does the feature fit under?"
+    description: "Choose any that fit"
+    options:
+    - label: "Wand Building Mechanics"
+      required: false
+    - label: "Biomes/Structures/Locations"
+      required: false
+    - label: "Survival strategies"
+      required: false
+    - label: "Game Endings"
+      required: false
+    - label: "Lore"
+      required: false
+    - label: "Alchemy"
+      required: false
+    - label: "Other"
+      required: false
+  validations:
+    required: false
+- type: "checkboxes"
+  attributes:
+    label: "What would be a good method to hint this feature?"
+    description: "Choose any that fit"
+    options:
+    - label: "Adjustments to existing Biomes"
+      required: false
+    - label: "Random-spawn Pixel Scenes"
+      required: false
+    - label: "Structure in a persistent area"
+      required: false
+    - label: "Pre-made Wands"
+      required: false
+    - label: "Books/Tablets"
+      required: false
+    - label: "Other"
+      required: false
+  validations:
+    required: false
+- type: "checkboxes"
+  attributes:
+    label: "Ideally, when should a player be introduced to this feature?"
+    description: "Choose any that fit"
+    options:
+    - label: "Tutorial (Hasn't beaten Kolmi)"
+      required: false
+    - label: "Beginner (1-5 wins)"
+      required: false
+    - label: "Early-mid-game (Beaten major bosses)"
+      required: false
+    - label: "Mid-game (200k+ Gold in one run)"
+      required: false
+    - label: "Late-game (Visited Parallel Worlds)"
+      required: false
+    - label: "11-orb Endgame"
+      required: false
+    - label: "NG+ Cycles"
+      required: false
+  validations:
+    required: false
+- type: "textarea"
+  attributes:
+    label: "How would you hint this feature to a new player in a diegetic/immersive way?"
+  validations:
+    required: false
