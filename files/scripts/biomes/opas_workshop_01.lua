@@ -1,4 +1,3 @@
-dofile_once("mods/noita-diegetic-mod/files/scripts/workshop/workshop_prices.lua")
 dofile_once("mods/noita-diegetic-mod/files/scripts/lib/utilities.lua")
 
 RegisterSpawnFunction( 0xffffeedd, "init" )
@@ -30,7 +29,11 @@ function spawn_spells(x, y)
 end
 
 function spawn_target_dummy(x, y)
-    EntityLoad( "data/entities/props/temple_statue_01.xml", x, y)
+    if ModIsEnabled("grahamsdummy") then
+        EntityLoad( "mods/grahamsdummy/files/dummy.xml", x, y-5)
+    else
+        EntityLoad( "data/entities/props/temple_statue_01.xml", x, y)
+    end
 end
 
 function spawn_pedestal_items(x, y)
