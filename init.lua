@@ -1,53 +1,10 @@
+dofile_once( "data/scripts/lib/utilities.lua" )
 
-function OnModPreInit() 
+ModMagicNumbersFileAdd("mods/noita-diegetic-mod/files/magic_numbers.xml")
 
+local nxml = dofile_once( "mods/noita-diegetic-mod/files/scripts/lib/nxml.lua" )
+
+local new = nxml.parse_file("mods/noita-diegetic-mod/files/biomes/diegetic_biomes.xml")
+for tree in nxml.edit_file("data/biome/_biomes_all.xml") do
+    for child in new:each_child() do tree:add_child(child) end
 end
-
-function OnModInit() 
-
-end
-
-function OnModPostInit() 
-
-end
-
-function OnPlayerSpawned( player_entity ) 
-
-end
-
-function OnPlayerDied( player_entity ) 
-
-end
-
-function OnWorldInitialized() 
-
-end
-
-function OnWorldPreUpdate() 
-
-end
-
-function OnWorldPostUpdate() 
-
-end
-
-function OnBiomeConfigLoaded() 
-
-end
-
-function OnMagicNumbersAndWorldSeedInitialized() 
-
-end
-
-function OnPausedChanged( is_paused, is_inventory_pause ) 
-
-end
-
-function OnModSettingsChanged() 
-
-end
-
-function OnPausePreUpdate() 
-
-end
-	

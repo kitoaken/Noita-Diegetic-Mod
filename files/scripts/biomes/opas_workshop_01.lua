@@ -7,15 +7,11 @@ RegisterSpawnFunction( 0xff31c2d0, "spawn_spells" )
 RegisterSpawnFunction( 0xff318cd0, "spawn_target_dummy" )
 RegisterSpawnFunction( 0xff3147d0, "spawn_pedestal_items" )
 
-Workshop_ID = WorkshopModSettingName(1)
-
 function init( x, y, w, h )
     local pixel_scene = "mods/noita-diegetic-mod/files/biome_impl/opas_workshop.png"
     local pixel_visual = "mods/noita-diegetic-mod/files/biome_impl/opas_workshop_visual.png"
     local pixel_bg = "mods/noita-diegetic-mod/files/biome_impl/opas_workshop_background.png"
 	LoadPixelScene( pixel_scene, pixel_visual, x, y, pixel_bg, true )
-    
-    ModSettingSet(tostring(Workshop_ID), 5)
 
 end
 
