@@ -16,7 +16,7 @@ table.insert(actions,
 
       if biome_name ~= "Mossy Grove" then
         add_projectile("mods/noita-diegetic-mod/files/entities/particles/core_fail_neutralized.xml")
-        current_reload_time = current_reload_time - 25
+        current_reload_time = 80
 			
         for i,v in ipairs( hand ) do
           -- print( "removed " .. v.id .. " from hand" )
