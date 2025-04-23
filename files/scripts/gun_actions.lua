@@ -1,8 +1,12 @@
-
 dofile_once("mods/noita-diegetic-mod/files/scripts/lib/utilities.lua")
+
+-----------------------------------------------------
+-- Actions to append to vanilla spells
+-----------------------------------------------------
 
 -- Check to see if the player is in the Mossy Grove biome
 -- String check is a bit slower but this won't be called constantly
+
 function check_grove()
   if not reflecting then
 
@@ -45,6 +49,11 @@ function fail_alwayscast()
   end
 end
 
+-----------------------------------------------------
+-- Any new spells added by the mod (shouldn't be many)
+-----------------------------------------------------
+
+
 diegetic_newspells = {
   {
     id          = "ALWAYS_CAST_ORGANIC",
@@ -62,8 +71,7 @@ diegetic_newspells = {
   }
 }
 
-variant_spells_table = {}
-
+-- Add vanilla spell IDs here to gen grove equivalents
 variant_spell_ids = {
   "LIGHT_BULLET",
   "CHAINSAW",
@@ -71,17 +79,23 @@ variant_spell_ids = {
   "BURST_2"
 }
 
---[[ Two nested for loops feels like I'm missing something important in LUA,
-but a quick google says this is the right way. Berate me if this is cringe
-]]
+-----------------------------------------------------
+--Appending to main Actions
+-----------------------------------------------------
+
+variant_spells_table = {}
+
+-- Two nested for loops feels like I'm missing something important in LUA,
+-- but a quick google says this is the right way. Berate me if this is cringe
+
 for i=1, #actions do
   for x=1, #variant_spell_ids do
     local variant_spell = deepcopy(actions[i])
     if variant_spell.id == variant_spell_ids[x] then
 
-      variant_spell.id = variant_spell.id .. "_OPAS"
+      variant_spell.id = variant_spell.id .. "_GROVE"
       variant_spell.name = GameTextGet(variant_spell.name) .. " (Grove)"
-      variant_spell.description = GameTextGet(variant_spell.description) .. " This spell is bound to the Mossy Grove."
+      variant_spell.description = GameTextGet(variant_spell.description) .. ". This spell is bound to the Mossy Grove."
       --variant_spell.name = GameTextGet(variant_spell.name) .. "Test"
 
       local vanilla_function = variant_spell.action
@@ -98,7 +112,7 @@ for i=1, #actions do
   end
 end
 
-
+-- Could technically combine these
 for i=1, #diegetic_newspells do
   table.insert(actions, diegetic_newspells[i])
 end

@@ -10,7 +10,7 @@
     background_edge_priority="12"
     
     wang_template_file="" 
-    lua_script="mods/noita-diegetic-mod/files/scripts/biomes/opas_workshop_01.lua"
+    lua_script="mods/noita-diegetic-mod/files/scripts/biomes/grove_workshop_01.lua"
     wang_map_width="256"
     wang_map_height="256"
     limit_background_image="0"

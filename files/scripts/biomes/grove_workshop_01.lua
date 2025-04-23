@@ -7,9 +7,9 @@ RegisterSpawnFunction( 0xff318cd0, "spawn_target_dummy" )
 RegisterSpawnFunction( 0xff3147d0, "spawn_pedestal_items" )
 
 function init( x, y, w, h )
-    local pixel_scene = "mods/noita-diegetic-mod/files/biome_impl/opas_workshop.png"
-    local pixel_visual = "mods/noita-diegetic-mod/files/biome_impl/opas_workshop_visual.png"
-    local pixel_bg = "mods/noita-diegetic-mod/files/biome_impl/opas_workshop_background.png"
+    local pixel_scene = "mods/noita-diegetic-mod/files/biome_impl/grove_workshop.png"
+    local pixel_visual = "mods/noita-diegetic-mod/files/biome_impl/grove_workshop_visual.png"
+    local pixel_bg = "mods/noita-diegetic-mod/files/biome_impl/grove_workshop_background.png"
 	LoadPixelScene( pixel_scene, pixel_visual, x, y, pixel_bg, true )
 
 end
@@ -20,11 +20,11 @@ end
 
 function spawn_spells(x, y)
 
-    local spell_1 = CreateItemActionEntity("MANA_REDUCE_OPAS", x - 48, y)
-    local spell_2 = CreateItemActionEntity("CHAINSAW_OPAS", x - 24, y)
-    local spell_3 = CreateItemActionEntity("BURST_2_OPAS", x, y)
-    local spell_4 = CreateItemActionEntity("LIGHT_BULLET_OPAS", x + 24, y)
-    local spell_5 = CreateItemActionEntity("LIGHT_BULLET_OPAS", x + 48, y)
+    local spell_1 = CreateItemActionEntity("MANA_REDUCE_GROVE", x - 48, y)
+    local spell_2 = CreateItemActionEntity("CHAINSAW_GROVE", x - 24, y)
+    local spell_3 = CreateItemActionEntity("BURST_2_GROVE", x, y)
+    local spell_4 = CreateItemActionEntity("LIGHT_BULLET_GROVE", x + 24, y)
+    local spell_5 = CreateItemActionEntity("LIGHT_BULLET_GROVE", x + 48, y)
 
 end
 
