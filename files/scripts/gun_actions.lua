@@ -101,6 +101,8 @@ for i=1, #actions do
       local vanilla_function = variant_spell.action
       variant_spell.action = function()
         if check_grove() then
+          -- TODO: Spells still cost mana when they fail/add mana still works, need to figure this out
+          --data.mana = data.mana + mana
           fail_spell()
         else
           vanilla_function()
