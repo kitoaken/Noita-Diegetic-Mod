@@ -20,11 +20,11 @@ end
 
 function spawn_spells(x, y)
 
-    local spell_1 = CreateItemActionEntity("CHAINSAW", x - 48, y)
-    local spell_2 = CreateItemActionEntity("CHAINSAW", x - 24, y)
-    local spell_3 = CreateItemActionEntity("CHAINSAW", x, y)
-    local spell_4 = CreateItemActionEntity("CHAINSAW", x + 24, y)
-    local spell_5 = CreateItemActionEntity("CHAINSAW", x + 48, y)
+    local spell_1 = CreateItemActionEntity("MANA_REDUCE_OPAS", x - 48, y)
+    local spell_2 = CreateItemActionEntity("CHAINSAW_OPAS", x - 24, y)
+    local spell_3 = CreateItemActionEntity("BURST_2_OPAS", x, y)
+    local spell_4 = CreateItemActionEntity("LIGHT_BULLET_OPAS", x + 24, y)
+    local spell_5 = CreateItemActionEntity("LIGHT_BULLET_OPAS", x + 48, y)
 
 end
 

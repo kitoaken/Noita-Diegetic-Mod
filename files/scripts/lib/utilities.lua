@@ -94,3 +94,23 @@ function addNewInternalVariable(entity_id, variable_name, variable_type, initial
 		})
 	end
 end
+
+--[[
+http://lua-users.org/wiki/CopyTable
+Not sure if there'll be any recursive tables in spells that cause issues?
+This is a deep copy so should be fine
+]]
+function deepcopy(orig)
+	local orig_type = type(orig)
+	local copy
+	if orig_type == 'table' then
+		copy = {}
+		for orig_key, orig_value in next, orig, nil do
+			copy[deepcopy(orig_key)] = deepcopy(orig_value)
+		end
+		setmetatable(copy, deepcopy(getmetatable(orig)))
+	else -- number, string, boolean, etc
+		copy = orig
+	end
+	return copy
+  end
