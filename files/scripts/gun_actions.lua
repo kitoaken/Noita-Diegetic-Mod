@@ -27,7 +27,7 @@ end
 -- Mostly same code as Wand Refresh
 function fail_alwayscast()
 
-  spawn_fizzle()
+  fail_spell()
 
   for i,v in ipairs( hand ) do
     -- print( "removed " .. v.id .. " from hand" )
@@ -56,13 +56,13 @@ end
 
 diegetic_newspells = {
   {
-    id          = "ALWAYS_CAST_ORGANIC",
+    id          = "ORGANIC_CORE",
     name 		= "Organic Core",
     description = "This wand is bound to the Mossy Grove.",
-    sprite 		= "data/ui_gfx/gun_actions/mana.png",
+    sprite 		= "data/ui_gfx/gun_actions/air_bullet_unidentified.png",
     sprite_unidentified = "data/ui_gfx/gun_actions/spread_reduce_unidentified.png",
     type 		= ACTION_TYPE_MODIFIER,
-    custom_xml_file = "data/entities/misc/custom_cards/mana_reduce.xml",
+    custom_xml_file = "mods/noita-diegetic-mod/files/entities/misc/custom_cards/organic_core.xml",
     action 		= function()
       if check_grove() then
         fail_alwayscast()
