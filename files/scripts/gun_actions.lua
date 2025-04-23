@@ -21,7 +21,7 @@ end
 
 function fail_spell()
   add_projectile("mods/noita-diegetic-mod/files/entities/particles/core_fail_neutralized.xml")
-  current_reload_time = 40
+  current_reload_time = 20
 end
 
 -- Mostly same code as Wand Refresh
