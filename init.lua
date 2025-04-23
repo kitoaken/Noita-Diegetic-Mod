@@ -1,4 +1,5 @@
 dofile_once( "data/scripts/lib/utilities.lua" )
+ModLuaFileAppend("data/scripts/gun/gun_actions.lua", "mods/noita-diegetic-mod/files/scripts/actions.lua")
 
 ModMagicNumbersFileAdd("mods/noita-diegetic-mod/files/magic_numbers.xml")
 
