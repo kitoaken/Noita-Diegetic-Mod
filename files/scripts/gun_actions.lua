@@ -7,17 +7,20 @@ dofile_once("mods/noita-diegetic-mod/files/scripts/lib/utilities.lua")
 -- Check to see if the player is in the Mossy Grove biome
 -- String check is a bit slower but this won't be called constantly
 
-function check_grove()
+function outside_grove()
   if not reflecting then
 
     local entity_id = GetUpdatedEntityID()
     local coord_x, coord_y = EntityGetTransform(entity_id)
     local biome_name = BiomeMapGetName(coord_x, coord_y)
 
-    if biome_name ~= "Mossy Grove" then return true
+    -- Need to do an AND check for not "_EMPTY_", but not while loading into the save as it'll always be _EMPTY_
+    if biome_name ~= "Mossy Grove" then
+      return true    
     end
   end
 end
+
 
 function fail_spell(mana_refund)
   add_projectile("mods/noita-diegetic-mod/files/entities/particles/core_fail_neutralized.xml")
@@ -68,10 +71,10 @@ diegetic_newspells = {
     type 		= ACTION_TYPE_MODIFIER,
     custom_xml_file = "mods/noita-diegetic-mod/files/entities/misc/custom_cards/organic_core.xml",
     action 		= function()
-      if check_grove() then
+      if outside_grove() == true then
         fail_alwayscast()
       end
-    end,
+    end
   }
 }
 
@@ -86,7 +89,8 @@ variant_spell_ids = {
   "ALL_SPELLS",
   "WORM_RAIN",
   "LANCE_HOLY",
-  "MATERIAL_BLOOD"
+  "MATERIAL_BLOOD",
+  "HEAL_BULLET"
 }
 
 -----------------------------------------------------
@@ -102,21 +106,19 @@ for i=1, #actions do
   for x=1, #variant_spell_ids do
     local variant_spell = deepcopy(actions[i])
     if variant_spell.id == variant_spell_ids[x] then
-
       variant_spell.id = variant_spell.id .. "_GROVE"
       variant_spell.name = GameTextGet(variant_spell.name) .. " (Grove)"
       variant_spell.description = GameTextGet(variant_spell.description) .. ". This spell is bound to the Mossy Grove"
-      variant_spell.custom_uses_logic = true
       local vanilla_function = variant_spell.action
+      ---------------------------------------
       variant_spell.action = function()
-
-        if check_grove() then
+        -- Limited spells are still consumed, I'm not really interested in fixing this
+        if outside_grove() == true then
           fail_spell(variant_spell.mana)
         else
           vanilla_function()
         end
       end
-
       table.insert(variant_spells_table, variant_spell)
     end
   end
