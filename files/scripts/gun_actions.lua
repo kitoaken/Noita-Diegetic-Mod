@@ -23,7 +23,6 @@ function fail_spell(mana_refund)
   add_projectile("mods/noita-diegetic-mod/files/entities/particles/core_fail_neutralized.xml")
   c.fire_rate_wait = math.max(c.fire_rate_wait, 0) + 20
   mana = mana + mana_refund
-  print(mana)
   current_reload_time = 20
 end
 
@@ -84,7 +83,8 @@ variant_spell_ids = {
   "ALCOHOL_BLAST", -- Problematic spells for testing
   "ALL_SPELLS",
   "WORM_RAIN",
-  "LANCE_HOLY"
+  "LANCE_HOLY",
+  "MATERIAL_BLOOD"
 }
 
 -----------------------------------------------------
@@ -104,14 +104,11 @@ for i=1, #actions do
       variant_spell.id = variant_spell.id .. "_GROVE"
       variant_spell.name = GameTextGet(variant_spell.name) .. " (Grove)"
       variant_spell.description = GameTextGet(variant_spell.description) .. ". This spell is bound to the Mossy Grove"
-      --variant_spell.name = GameTextGet(variant_spell.name) .. "Test"
-
+      variant_spell.custom_uses_logic = true
       local vanilla_function = variant_spell.action
       variant_spell.action = function()
+
         if check_grove() then
-          print("divine cringe")
-          -- TODO: Spells still cost mana when they fail/add mana still works, need to figure this out
-          --data.mana = data.mana + mana
           fail_spell(variant_spell.mana)
         else
           vanilla_function()
