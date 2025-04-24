@@ -22,7 +22,9 @@ end
 function fail_spell(mana_refund)
   add_projectile("mods/noita-diegetic-mod/files/entities/particles/core_fail_neutralized.xml")
   c.fire_rate_wait = math.max(c.fire_rate_wait, 0) + 20
-  mana = mana + mana_refund
+  if mana_refund ~= nil then
+    mana = mana + mana_refund
+  end
   current_reload_time = 20
 end
 
