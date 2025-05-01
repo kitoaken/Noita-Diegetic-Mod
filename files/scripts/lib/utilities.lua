@@ -2,6 +2,17 @@
 -- entity_id is the id of the entity whose internal variables will be accessed
 -- variable_name is the name of the internal variable to be accesses
 -- variable_type is type indicator of the internal variable, which can be value_string, value_int or value_float
+
+dofile_once( "data/scripts/lib/utilities.lua" )
+
+-- simple utility function to return the player entity
+function getPlayerEntity()
+	local players = EntityGetWithTag("player_unit")
+	if #players == 0 then return end
+
+	return players[1]
+end
+
 function getInternalVariableValue(entity_id, variable_name, variable_type, include_disabled)
 
     include_disabled = include_disabled or false
@@ -113,4 +124,30 @@ function deepcopy(orig)
 		copy = orig
 	end
 	return copy
-  end
+end
+
+-- function to add or subtract gold from player
+-- amount can be either negative or positive
+function addPlayerGold(amount)
+
+	local player = getPlayerEntity()
+
+	local wallet = EntityGetFirstComponent(player, "WalletComponent")
+	local money = ComponentGetValueInt(wallet, "money")
+	local player_money = money + amount
+
+	edit_component(player, "WalletComponent", function(comp,vars)
+		vars.money = player_money
+	end)
+end
+
+-- function to get player gold
+function getPlayerGold()
+	
+	local player = getPlayerEntity()
+	
+	local wallet = EntityGetFirstComponent(player, "WalletComponent")
+	local money = ComponentGetValueInt(wallet, "money")
+
+	return money
+end
